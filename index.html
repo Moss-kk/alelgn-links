@@ -8,25 +8,68 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+  <div class="background-glow"></div>
+  
   <div class="container">
     <div class="profile">
-      <!-- Make sure your image file is named logo.png and placed in the root folder -->
-      <img src="logo.png" alt="ALELGN Design Logo" class="logo">
-      <h1>ALELGN Design</h1>
-      <p>Connect with us across all platforms</p>
+      <div class="logo-wrapper">
+        <img src="logo.png" alt="ALELGN Design Logo" class="logo">
+      </div>
+      <h1>ALELGN <span>Design</span></h1>
+      <p class="tagline">We bring your creative ideas to life with high-quality graphic design.</p>
     </div>
 
+    <!-- Quick Links -->
     <div class="links">
-      <a href="https://t.me/alelgni_design" target="_blank" class="link-card">
-        <i class="fab fa-telegram"></i>
-        <span>Telegram</span>
+      <a href="https://t.me/alelgni_design" target="_blank" class="link-card telegram" id="telegramBtn">
+        <i class="fab fa-telegram-plane"></i>
+        <span>Join Telegram</span>
       </a>
 
-      <a href="https://www.instagram.com/alelgni_design?igsh=MXdxeWtyM2w5MDk2bQ==" target="_blank" class="link-card">
+      <a href="https://www.instagram.com/alelgni_design?igsh=MXdxeWtyM2w5MDk2bQ==" target="_blank" class="link-card instagram">
         <i class="fab fa-instagram"></i>
         <span>Instagram</span>
       </a>
+
+      <a href="tel:+251946385991" class="link-card phone">
+        <i class="fas fa-phone-alt"></i>
+        <span>Call Us (+251 946 385 991)</span>
+      </a>
+
+      <!-- Placeholders -->
+      <a href="#" class="link-card disabled">
+        <i class="fab fa-tiktok"></i>
+        <span>TikTok <small>(Coming Soon)</small></span>
+      </a>
+
+      <a href="#" class="link-card disabled">
+        <i class="fab fa-linkedin-in"></i>
+        <span>LinkedIn <small>(Coming Soon)</small></span>
+      </a>
+
+      <a href="#" class="link-card disabled">
+        <i class="fas fa-briefcase"></i>
+        <span>Portfolio <small>(Coming Soon)</small></span>
+      </a>
     </div>
+
+    <!-- Our Services Section -->
+    <div class="services-section">
+      <h2>Our Services</h2>
+      <div class="services-grid">
+        <div class="service-chip"><i class="fas fa-pen-nib"></i> Logo Design</div>
+        <div class="service-chip"><i class="fas fa-magic"></i> Photo Editing</div>
+        <div class="service-chip"><i class="fas fa-utensils"></i> Menu & Banners</div>
+        <div class="service-chip"><i class="fas fa-id-card"></i> Brochures & Business Cards</div>
+        <div class="service-chip"><i class="fas fa-hashtag"></i> Social Media Graphics</div>
+      </div>
+    </div>
+
+    <footer>
+      <p>© ALELGN Design. All rights reserved.</p>
+    </footer>
   </div>
+
+  <script src="script.js"></script>
 </body>
 </html>

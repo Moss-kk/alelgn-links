@@ -1,71 +1,191 @@
+:root {
+  --primary-orange: #FF4500;
+  --secondary-red: #E62200;
+  --brand-gradient: linear-gradient(135deg, #FF5500 0%, #E62200 100%);
+  --bg-dark: #0a0a0c;
+  --card-bg: #141418;
+  --card-border: #222228;
+  --text-main: #ffffff;
+  --text-muted: #9999a1;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
 body {
-  background-color: #0d0d0e;
-  color: #ffffff;
+  background-color: var(--bg-dark);
+  color: var(--text-main);
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  padding: 20px;
+  padding: 24px 16px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.background-glow {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(255, 69, 0, 0.18) 0%, rgba(0,0,0,0) 70%);
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 0;
+  pointer-events: none;
 }
 
 .container {
   width: 100%;
-  max-width: 380px;
+  max-width: 400px;
   text-align: center;
+  z-index: 1;
+}
+
+.logo-wrapper {
+  width: 105px;
+  height: 105px;
+  margin: 0 auto 16px;
+  border-radius: 20px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  box-shadow: 0 10px 30px rgba(255, 69, 0, 0.2);
 }
 
 .logo {
-  width: 120px;
-  height: auto;
-  margin-bottom: 16px;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .profile h1 {
-  font-size: 1.5rem;
-  letter-spacing: 1px;
+  font-size: 1.6rem;
+  font-weight: 800;
   margin-bottom: 6px;
 }
 
-.profile p {
+.profile h1 span {
+  background: var(--brand-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.profile .tagline {
   font-size: 0.88rem;
-  color: #8e8e93;
-  margin-bottom: 28px;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+  line-height: 1.4;
 }
 
 .links {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
 }
 
+/* Base style for all active link buttons */
 .link-card {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  background: #18181b;
-  border: 1px solid #27272a;
-  color: #ffffff;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  color: var(--text-main);
   padding: 15px 20px;
   border-radius: 12px;
   text-decoration: none;
   font-weight: 600;
-  transition: all 0.2s ease-in-out;
+  font-size: 0.95rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+  position: relative;
 }
 
-.link-card:hover {
-  border-color: #ff4500;
-  background: #ff4500;
+/* Hover effect for Telegram, Instagram, Phone (Turns Orange on Hover) */
+.link-card:not(.disabled):hover {
+  background: var(--brand-gradient);
+  border-color: transparent;
+  color: #ffffff;
   transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 69, 0, 0.45);
 }
 
-.link-card i {
-  font-size: 1.2rem;
+/* Touch & Click Feedback (Active Press State) */
+.link-card:not(.disabled):active,
+.link-card.active-touch {
+  transform: scale(0.97) translateY(1px) !important;
+  box-shadow: 0 3px 12px rgba(255, 69, 0, 0.6) !important;
+  filter: brightness(1.1);
+}
+
+/* Styling for future disabled links */
+.link-card.disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  border-style: dashed;
+}
+
+.link-card.disabled:hover {
+  background: var(--card-bg);
+  border-color: var(--card-border);
+  transform: none;
+  box-shadow: none;
+}
+
+/* Services Section */
+.services-section {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--card-border);
+}
+
+.services-section h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+  color: var(--text-main);
+}
+
+.services-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.service-chip {
+  background: #18181f;
+  border: 1px solid #282832;
+  color: #d1d1d6;
+  font-size: 0.78rem;
+  padding: 8px 12px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: border-color 0.2s ease;
+}
+
+.service-chip:hover {
+  border-color: var(--primary-orange);
+}
+
+.service-chip i {
+  color: var(--primary-orange);
+  font-size: 0.82rem;
+}
+
+footer {
+  margin-top: 32px;
+  font-size: 0.75rem;
+  color: #55555e;
 }
